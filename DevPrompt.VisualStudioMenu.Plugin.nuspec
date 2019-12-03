@@ -3,7 +3,7 @@
     <metadata>
         <id>DevPrompt.VisualStudioMenu.Plugin</id>
         <title>Visual Studio Menu</title>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
         <authors>Peter Spada</authors>
         <owners>Peter Spada</owners>
         <projectUrl>https://github.com/spadapet/DevPrompt.VisualStudioMenu.Plugin</projectUrl>

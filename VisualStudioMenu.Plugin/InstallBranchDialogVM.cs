@@ -1,5 +1,5 @@
-﻿using System.Windows.Input;
-using VisualStudioMenu.Plugin.Utility;
+﻿using DevPrompt.Api.Utility;
+using System.Windows.Input;
 
 namespace VisualStudioMenu.Plugin
 {

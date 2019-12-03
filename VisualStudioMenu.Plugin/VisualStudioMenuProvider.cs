@@ -1,4 +1,5 @@
 ﻿using DevPrompt.Api;
+using DevPrompt.Api.Utility;
 using System;
 using System.Collections.Generic;
 using System.Composition;
@@ -6,7 +7,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using VisualStudioMenu.Plugin.Utility;
 
 namespace VisualStudioMenu.Plugin
 {
@@ -92,19 +92,19 @@ namespace VisualStudioMenu.Plugin
         private void Start(IVisualStudioInstance instance)
         {
             this.app.Telemetry.TrackEvent("Start.VS");
-            this.app.RunExternalProcess(instance.ProductPath);
+            this.app.AppProcesses.RunExternalProcess(instance.ProductPath);
         }
 
         private ICommand LocalInstallerCommand => new DelegateCommand(() =>
         {
             this.app.Telemetry.TrackEvent("Command.VisualStudioInstaller");
-            this.app.RunExternalProcess(this.app.VisualStudioSetup.LocalInstallerPath);
+            this.app.AppProcesses.RunExternalProcess(this.app.VisualStudioSetup.LocalInstallerPath);
         });
 
         private ICommand OnlineInstallerCommand => new DelegateCommand(() =>
         {
             this.app.Telemetry.TrackEvent("Command.VisualStudioOnlineInstaller");
-            this.app.RunExternalProcess(this.app.VisualStudioSetup.OnlineInstallerUrl);
+            this.app.AppProcesses.RunExternalProcess(this.app.VisualStudioSetup.OnlineInstallerUrl);
         });
 
         private ICommand BranchInstallerCommand(IWindow window) => new DelegateCommand(() =>
@@ -118,7 +118,7 @@ namespace VisualStudioMenu.Plugin
 
             if (dialog.ShowDialog() == true)
             {
-                this.app.RunExternalProcess(dialog.ViewModel.Hyperlink);
+                this.app.AppProcesses.RunExternalProcess(dialog.ViewModel.Hyperlink);
             }
         });
 
